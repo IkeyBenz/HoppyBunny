@@ -4,7 +4,7 @@ import Foundation
 class MainScene: CCNode, CCPhysicsCollisionDelegate {
     weak var hero: CCSprite!
     var sinceTouch: CCTime = 0
-    var scrollSpeed: CGFloat = 120
+    var scrollSpeed: CGFloat = 200
     weak var gamePhysicsNode: CCPhysicsNode!
     weak var obstaclesLayer: CCNode!
     weak var restartButton: CCButton!
@@ -25,7 +25,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         grounds.append(ground1)             //Adding grounds to the Groounds Array
         grounds.append(ground2)
         //Adding three initial Obstacles
-        for i in (1...3) {
+        for i in (0...2) {
             println("spawned new at start")
             spawnNewObstacle()
         }
@@ -37,8 +37,8 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (gameOver == false) {
-        hero.physicsBody.applyImpulse(ccp(0, 400)) //When the bunny is touched, it will jump 400 pixels. And spin upwards at 4000 somethings.
-        hero.physicsBody.applyAngularImpulse(4000)
+        hero.physicsBody.applyImpulse(ccp(0, 600)) //When the bunny is touched, it will jump 400 pixels. And spin upwards at 4000 somethings.
+        hero.physicsBody.applyAngularImpulse(5000)
         sinceTouch = 0        //Reset sinceTouch variable to zero
         
         }
@@ -50,7 +50,7 @@ class MainScene: CCNode, CCPhysicsCollisionDelegate {
         hero.physicsBody.velocity = ccp(0, CGFloat(velocityY))
         
         sinceTouch += delta
-        hero.rotation = clampf(hero.rotation, -30, 70)
+        hero.rotation = clampf(hero.rotation, -30, 40)
         if (hero.physicsBody.allowsRotation) {
             let angularVelocity = clampf(Float(hero.physicsBody.angularVelocity), -2, 2)
             hero.physicsBody.angularVelocity = CGFloat(angularVelocity)
