@@ -990,6 +990,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -1174,7 +1176,7 @@
 						<key>customClass</key>
 						<string></string>
 						<key>displayName</key>
-						<string>CCBFile</string>
+						<string>Bunny</string>
 						<key>memberVarAssignmentName</key>
 						<string>hero</string>
 						<key>memberVarAssignmentType</key>
